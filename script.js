@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.getElementById("btn").addEventListener("click", () => {
   const inputValue = document.getElementById("ip").value;
 
@@ -9,40 +8,55 @@ document.getElementById("btn").addEventListener("click", () => {
   });
 
   promise1
-    .then((result) => {
-      document.getElementById("output").textContent = `Result: ${result}`;
-      return result;
+    .then((res) => {
+      document.getElementById("output").textContent = `Result : ${res}`;
+      return res;
     })
-    .then((result) => {
-      return new Promise((resolve) => {
+    .then((res) => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(result * 2);
+          const updatedValue = res * 2;
+          document.getElementById(
+            "output"
+          ).textContent = `Result : ${updatedValue}`;
+          resolve(updatedValue);
         }, 1000);
       });
     })
-    .then((result) => {
-      document.getElementById("output").textContent = `Result: ${result}`;
-      return result - 3;
-    })
-    .then((result) => {
-      return new Promise((resolve) => {
+    .then((res) => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(result / 2);
+          const updatedValue = res - 3;
+          document.getElementById(
+            "output"
+          ).textContent = `Result : ${updatedValue}`;
+          resolve(updatedValue);
         }, 1000);
       });
     })
-    .then((result) => {
-      document.getElementById("output").textContent = `Result: ${result}`;
-      return result + 10;
-    })
-    .then((result) => {
-      return new Promise((resolve) => {
+    .then((res) => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(result);
+          const updatedValue = res / 2;
+          document.getElementById(
+            "output"
+          ).textContent = `Result : ${updatedValue}`;
+          resolve(updatedValue);
         }, 1000);
       });
     })
-    .then((result) => {
-      document.getElementById("output").textContent = `Final Result: ${result}`;
+    .then((res) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const updatedValue = res + 10;
+          document.getElementById(
+            "output"
+          ).textContent = `Result : ${updatedValue}`;
+          resolve(updatedValue);
+        }, 1000);
+      });
+    })
+    .then((res) => {
+      document.getElementById("output").textContent = `Final Result : ${res}`;
     });
 });
